@@ -1,0 +1,12 @@
+{
+    "require": {
+        "cboden/ratchet": "^0.4.1",
+        "ratchet/pawl": "^0.3.4"
+    },
+    "autoload": {
+        "psr-4": {
+            "app\\": ""
+        }
+    }
+
+}

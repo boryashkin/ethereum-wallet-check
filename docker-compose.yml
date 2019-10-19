@@ -1,0 +1,56 @@
+version: "3.3"
+
+networks:
+  eth-backend:
+    external:
+      name: eth-backend
+
+services:
+  eth-composer:
+    image: composer:latest
+    working_dir: "/app"
+    volumes:
+      - ./app:/app
+    command: install
+  eth-listener:
+    build: "./docker/php7.3-alpine-mysql"
+    env_file:
+      - .env
+    volumes:
+      - ./app:/app
+    working_dir: "/app"
+    entrypoint: ["php", "etherium-listener.php"]
+    restart: on-failure
+    depends_on:
+      - eth-composer
+      - eth-mysql
+    networks:
+      - eth-backend
+  eth-server:
+    build: "./docker/php7.3-alpine-mysql"
+    env_file:
+      - .env
+    volumes:
+      - ./app:/app
+    working_dir: "/app"
+    entrypoint: ["php", "websocket-server.php"]
+    restart: on-failure
+    ports:
+      - 8080:8080
+    depends_on:
+      - eth-mysql
+    networks:
+      - eth-backend
+  eth-mysql:
+    image: mysql:8.0.18
+    container_name: ${MYSQL_HOST}
+    command: --default-authentication-plugin=mysql_native_password
+    restart: on-failure
+    volumes:
+      - ./data/db/mysql:/var/lib/mysql
+      - /data/init/mysql:/docker-entrypoint-initdb.d/:ro
+    environment:
+      MYSQL_DATABASE: ${MYSQL_DB}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_PASSWORD}
+    networks:
+      - eth-backend
