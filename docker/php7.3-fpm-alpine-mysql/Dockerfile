@@ -1,3 +1,5 @@
-FROM php:7.3-cli-alpine
+FROM php:7.3-fpm-alpine
 
 RUN docker-php-ext-install pdo pdo_mysql bcmath
+
+CMD ["php-fpm"]
