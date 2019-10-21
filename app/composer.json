@@ -1,7 +1,10 @@
 {
     "require": {
         "cboden/ratchet": "^0.4.1",
-        "ratchet/pawl": "^0.3.4"
+        "ratchet/pawl": "^0.3.4",
+        "ext-bcmath": "*",
+        "ext-curl": "*",
+        "phlib/base_convert": "^1.0"
     },
     "autoload": {
         "psr-4": {

@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "ac22b83bbd7aaa1cf0766cfb920c88d9",
-    "content-hash": "adc24df923ac1b6729472a4953510267",
+    "hash": "427215b27d0777e13627519f3830c75c",
+    "content-hash": "d1475ead281fa5f1a659086ac343c643",
     "packages": [
         {
             "name": "cboden/ratchet",
@@ -173,6 +173,46 @@
                 "url"
             ],
             "time": "2019-07-01 23:21:34"
+        },
+        {
+            "name": "phlib/base_convert",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/phlib/base_convert.git",
+                "reference": "153ee093e289dfd7e526d4f83df4656bd12caaa9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/phlib/base_convert/zipball/153ee093e289dfd7e526d4f83df4656bd12caaa9",
+                "reference": "153ee093e289dfd7e526d4f83df4656bd12caaa9",
+                "shasum": ""
+            },
+            "require": {
+                "ext-bcmath": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "~4.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Phlib\\": "src/"
+                },
+                "files": [
+                    "src/base_convert.php"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "authors": [
+                {
+                    "name": "James Dempster",
+                    "email": "james.dempster@emailcenteruk.com"
+                }
+            ],
+            "description": "base_convert function with support for large arbitrary number",
+            "time": "2016-02-26 16:42:49"
         },
         {
             "name": "psr/http-message",
@@ -1053,6 +1093,9 @@
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
-    "platform": [],
+    "platform": {
+        "ext-bcmath": "^0.0.0",
+        "ext-curl": "^0.0.0"
+    },
     "platform-dev": []
 }
