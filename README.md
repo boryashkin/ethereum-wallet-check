@@ -1,6 +1,6 @@
 # ethereum-wallet-check
 
-To run this app you need:
+To run this app you need to:
 
 * create .env in the root and change its content by replacing .env.dist structure with your values
 * run `docker-compose up eth-mmysql` and check if `ethereum` database exists and contains 3 table. If not, apply a dump `/data/init/mysql/createSchema.sql`
